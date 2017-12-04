@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.a20hour.Forest">
+
+    <RelativeLayout
+        android:layout_width="395dp"
+        android:layout_height="643dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/catamaran_thin"
+            android:text="Forest"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Sun"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Mon"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Tue"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Wed"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Thu"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Fri"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@color/cpb_front"
+                android:text="Sat"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="102dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/isomorphic_forest" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

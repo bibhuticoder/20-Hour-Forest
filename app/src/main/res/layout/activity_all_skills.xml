@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.a20hour.AllSkillsActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:focusable="auto"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="All Skills"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/ibtnPlus"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/textView3"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="gotoNewSkill"
+                    app:srcCompat="@drawable/plus" />
+
+
+            </RelativeLayout>
+
+            <GridView
+                android:id="@+id/gvSkills"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:numColumns="3" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/ibtnForest"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="96dp"
+                    android:layout_marginLeft="82dp"
+                    android:layout_marginStart="82dp"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/forest" />
+
+                <ImageButton
+                    android:id="@+id/ibtnSettings"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignTop="@+id/ibtnForest"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_toEndOf="@+id/ibtnForest"
+                    android:layout_toRightOf="@+id/ibtnForest"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/settings" />
+
+                <ImageButton
+                    android:id="@+id/ibtnAbout"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignTop="@+id/ibtnSettings"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_toEndOf="@+id/ibtnSettings"
+                    android:layout_toRightOf="@+id/ibtnSettings"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/info" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

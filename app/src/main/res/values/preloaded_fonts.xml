@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/balthazar</item>
+        <item>@font/catamaran_thin</item>
+        <item>@font/dosis_extralight</item>
+        <item>@font/happy_monkey</item>
+    </array>
+</resources>

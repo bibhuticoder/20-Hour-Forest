@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.a20hour.SkillActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvSCTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/actor"
+                    android:gravity="center"
+                    android:text="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color"
+                    android:textSize="50sp"
+                    tools:layout_editor_absoluteX="131dp"
+                    tools:layout_editor_absoluteY="49dp" />
+
+                <ImageButton
+                    android:id="@+id/ibtnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="handleBackBtnClick"
+                    app:srcCompat="@drawable/back" />
+
+                <ImageButton
+                    android:id="@+id/ibtnShowInfo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="showSkillInfo"
+                    app:srcCompat="@drawable/stats" />
+
+                <ImageButton
+                    android:id="@+id/ibtnForest"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/ibtnShowInfo"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/forest" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivSkillStage"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/s1" />
+
+                <com.devadvance.circularseekbar.CircularSeekBar
+                    android:id="@+id/circularSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_centerHorizontal="true"
+
+                    app:circle_color="@color/cpb_back"
+                    app:circle_progress_color="@color/cpb_front"
+                    app:circle_stroke_width="12dp"
+                    app:circle_x_radius="200dp"
+                    app:circle_y_radius="200dp"
+                    app:lock_enabled="true"
+                    app:max="24"
+                    app:move_outside_circle="true"
+                    app:pointer_alpha_ontouch="0"
+                    app:pointer_color="@color/cpb_front"
+                    app:pointer_halo_border_width="0dp"
+                    app:pointer_halo_color="@color/cpb_front"
+                    app:pointer_halo_width="0dp"
+                    app:pointer_radius="12dp"
+                    app:progress="25"
+                    app:use_custom_radii="true" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/progressBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/actor"
+                android:gravity="fill_vertical|center_horizontal"
+                android:text="--------"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/advent_pro_thin"
+                    android:text="00:00"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="80sp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@color/cpb_back"
+                android:fontFamily="@font/actor"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:shadowColor="@color/colorPrimary"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:text="Start"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
