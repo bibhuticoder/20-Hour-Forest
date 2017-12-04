@@ -11,7 +11,6 @@ Clone of "Forest" android app with "20 hr rule " feature. Firebase is used for d
 - [ ] Clean UI and a lot of animations
 
 ## Screenshots
-- ![Alt text](/s1.png)
-- ![Alt text](/s2.png)
-- ![Alt text](/s3.png)
+- ![Alt text](/s.png)
+
 
