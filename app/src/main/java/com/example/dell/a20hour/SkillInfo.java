@@ -1,31 +1,39 @@
 package com.example.dell.a20hour;
 
-import android.graphics.Color;
+import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.dell.a20hour.db.AppDatabase;
+import com.example.dell.a20hour.db.Skill;
+import com.example.dell.a20hour.db.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SkillInfo extends AppCompatActivity {
 
 
     Skill skill;
-    ArrayList<SkillTask> activities;
+    List<Task> tasks;
     TextView tvSkillInfoTitle, tvSkillPercentage, tvSkillDateCreated, tvSkillDateUpdated;
     ListView lvActivities;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
     String skillAsString;
     SimpleDateFormat dateFormat;
+    AppDatabase db;
+    ImageButton ibtnDeleteSkill;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,7 @@ public class SkillInfo extends AppCompatActivity {
         tvSkillDateCreated = findViewById(R.id.tvSkillDateCreated);
         tvSkillDateUpdated = findViewById(R.id.tvSkillDateUpdated);
         lvActivities = findViewById(R.id.lvActivities);
+        ibtnDeleteSkill = findViewById(R.id.ibtnDeleteSkill);
 
 
         Gson gson = new Gson();
@@ -45,18 +54,29 @@ public class SkillInfo extends AppCompatActivity {
         skill = gson.fromJson(skillAsString, Skill.class);
         tvSkillInfoTitle.setText(skill.getTitle());
         dateFormat = new SimpleDateFormat("yyyy-MM-dd'-'hh:mm:ss");
-        tvSkillPercentage.setText("Completed: " + Long.toString(skill.getMillisDone()/(1000*60*60)) + " hours");
-        tvSkillDateCreated.setText("Date Started: " + dateFormat.format(skill.getDate_created()));
-        tvSkillDateUpdated.setText("Last Active at : " + dateFormat.format(skill.getDate_updated()));
+        tvSkillPercentage.setText("Completed: " + Long.toString(skill.getTimeSpent()/(1000*60*60)) + " hours");
+        tvSkillDateCreated.setText("Date Started: " + dateFormat.format(skill.getDateCreated()));
+        tvSkillDateUpdated.setText("Last Active at : " + dateFormat.format(skill.getDateUpdated()));
+
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "20hours")
+                .allowMainThreadQueries()
+                .build();
+        tasks = db.taskDao().getAll(skill.getId());
 
         //activities
         final CustomAdapter customAdapter = new CustomAdapter();
         lvActivities.setAdapter(customAdapter);
 
+        ibtnDeleteSkill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.skillDao().delete(skill);
+                Intent intent = new Intent(getApplicationContext(), AllSkillsActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    }
-
-    public void deleteSkill(View view) {
 
     }
 
@@ -64,7 +84,7 @@ public class SkillInfo extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return skill.getSkillTasks().size();
+            return tasks.size();
         }
 
         @Override
@@ -84,11 +104,9 @@ public class SkillInfo extends AppCompatActivity {
             TextView tvActivityTimestamp = view.findViewById(R.id.tvActivityTimestamp);
             TextView tvSTTarget = view.findViewById(R.id.tvSTTarget);
 
-            SkillTask sk = (SkillTask)skill.getSkillTasks().get(i);
-
-            tvActivityDate.setText(dateFormat.format(sk.getDateCreated()));
-            tvActivityTimestamp.setText(Long.toString(sk.getTimespan()));
-            tvSTTarget.setText(Long.toString(sk.getTargetTime()));
+            tvActivityDate.setText(dateFormat.format(tasks.get(i).getDateCreated()));
+            tvActivityTimestamp.setText(Long.toString(tasks.get(i).getTargetTime()));
+            tvSTTarget.setText(Long.toString(tasks.get(i).getTimeSpent()));
 
             return view;
         }

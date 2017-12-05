@@ -58,23 +58,12 @@
                     android:id="@+id/ibtnShowInfo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_alignBottom="@+id/ibtnBack"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
                     android:background="@android:color/transparent"
                     android:onClick="showSkillInfo"
                     app:srcCompat="@drawable/stats" />
-
-                <ImageButton
-                    android:id="@+id/ibtnForest"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/ibtnShowInfo"
-                    android:layout_marginTop="5dp"
-                    android:background="@android:color/transparent"
-                    app:srcCompat="@drawable/forest" />
 
             </RelativeLayout>
 

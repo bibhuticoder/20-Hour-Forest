@@ -1,8 +1,8 @@
 package com.example.dell.a20hour;
 
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
-import android.provider.SyncStateContract;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.dell.a20hour.db.AppDatabase;
+import com.example.dell.a20hour.db.Skill;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,15 +25,16 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
 public class AllSkillsActivity extends AppCompatActivity {
 
     private GridView gvSkills;
-    private ArrayList<Skill> skills;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    private List<Skill> skills;
     ImageButton ibtnForest, ibtnAbout, ibtnSettings;
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,11 @@ public class AllSkillsActivity extends AppCompatActivity {
         ibtnForest = findViewById(R.id.ibtnForest);
         ibtnAbout = findViewById(R.id.ibtnAbout);
         ibtnSettings = findViewById(R.id.ibtnSettings);
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "20hours")
+                .allowMainThreadQueries()
+                .build();
 
-        skills = new ArrayList<>();
+        skills = db.skillDao().getAll();
         final CustomAdapter customAdapter = new CustomAdapter();
         gvSkills.setAdapter(customAdapter);
 
@@ -62,21 +68,6 @@ public class AllSkillsActivity extends AppCompatActivity {
             }
         });
 
-        root.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Set<Skill> set = new HashSet<>();
-                for (DataSnapshot skillSnapshot: dataSnapshot.getChildren()) {
-                    set.add((skillSnapshot.getValue(Skill.class)));
-                }
-                skills.clear();
-                skills.addAll(set);
-                customAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
 
         ibtnForest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +76,6 @@ public class AllSkillsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
 

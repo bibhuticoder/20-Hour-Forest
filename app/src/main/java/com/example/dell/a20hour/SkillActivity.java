@@ -1,10 +1,7 @@
 package com.example.dell.a20hour;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.CountDownTimer;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,15 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devadvance.circularseekbar.CircularSeekBar;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.dell.a20hour.db.Skill;
 import com.google.gson.Gson;
-import com.mikhaellopez.circularprogressbar.CircularProgressBar;
-
-import java.util.Date;
 
 public class SkillActivity extends AppCompatActivity {
 
@@ -97,14 +87,14 @@ public class SkillActivity extends AppCompatActivity {
         skill = gson.fromJson(skillAsString, Skill.class);
 
         //check if skill is completed
-        if(skill.getMillisDone() == TOTAL_TIME){
+        if(skill.getTimeSpent() == TOTAL_TIME){
             //show completed message
             //maybe move to another congrats activity
         }
 
 
         tvSkillTitle.setText(skill.getTitle());
-        hoursCompleted = (int)(skill.getMillisDone()/(1000*60*60));
+        hoursCompleted = (int)(skill.getTimeSpent()/(1000*60*60));
         tvProgress.setText(Integer.toString(hoursCompleted) + " hrs of 20 hours completed");
 
 
@@ -124,13 +114,11 @@ public class SkillActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void handleBackBtnClick(View view) {
         super.onBackPressed();
     }
-
 
     public class CircleSeekBarListener implements CircularSeekBar.OnCircularSeekBarChangeListener {
         @Override
