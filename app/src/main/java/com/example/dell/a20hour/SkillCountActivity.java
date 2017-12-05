@@ -172,7 +172,6 @@ public class SkillCountActivity extends AppCompatActivity {
         db.skillDao().update(skill);
         Task task = new Task(skill.getId(), System.currentTimeMillis(), selectedTime, mainTimerCount);
         db.taskDao().insertAll(task);
-
     }
 
     public void formatTimeAndShow(long millis){
@@ -241,6 +240,10 @@ public class SkillCountActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if(!unExpectedPause) return;
+        if(music){
+            mediaPlayer.stop();
+            ibtnMusic.setImageResource(R.drawable.sound_off);
+        }
         notification.setPriority(Notification.PRIORITY_MAX);
         notification.setSmallIcon(R.drawable.forest);
         notification.setTicker("This is a ticker");

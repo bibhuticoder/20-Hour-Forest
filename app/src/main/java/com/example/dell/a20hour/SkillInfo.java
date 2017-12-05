@@ -2,6 +2,7 @@ package com.example.dell.a20hour;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class SkillInfo extends AppCompatActivity {
     ListView lvActivities;
     String skillAsString;
     SimpleDateFormat dateFormat;
+    SimpleDateFormat timeFormat;
     AppDatabase db;
     ImageButton ibtnDeleteSkill;
 
@@ -54,6 +56,7 @@ public class SkillInfo extends AppCompatActivity {
         skill = gson.fromJson(skillAsString, Skill.class);
         tvSkillInfoTitle.setText(skill.getTitle());
         dateFormat = new SimpleDateFormat("yyyy-MM-dd'-'hh:mm:ss");
+        timeFormat = new SimpleDateFormat("hh:mm:ss");
         tvSkillPercentage.setText("Completed: " + Long.toString(skill.getTimeSpent()/(1000*60*60)) + " hours");
         tvSkillDateCreated.setText("Date Started: " + dateFormat.format(skill.getDateCreated()));
         tvSkillDateUpdated.setText("Last Active at : " + dateFormat.format(skill.getDateUpdated()));
@@ -100,13 +103,18 @@ public class SkillInfo extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.skilltask_adapter, null);
-            TextView tvActivityDate = view.findViewById(R.id.tvActivityDate);
-            TextView tvActivityTimestamp = view.findViewById(R.id.tvActivityTimestamp);
-            TextView tvSTTarget = view.findViewById(R.id.tvSTTarget);
+            TextView tvTaskDate = view.findViewById(R.id.tvTaskDate);
+            TextView tvTaskDone = view.findViewById(R.id.tvTaskDone);
+            TextView tvTaskTarget = view.findViewById(R.id.tvTaskTarget);
 
-            tvActivityDate.setText(dateFormat.format(tasks.get(i).getDateCreated()));
-            tvActivityTimestamp.setText(Long.toString(tasks.get(i).getTargetTime()));
-            tvSTTarget.setText(Long.toString(tasks.get(i).getTimeSpent()));
+            Task task = tasks.get(i);
+
+            tvTaskDate.setText(dateFormat.format(task.getDateCreated()));
+
+            if(task.getTargetTime() != task.getTimeSpent()) tvTaskDate.setTextColor(Color.RED);
+
+            tvTaskDone.setText("Done: " + timeFormat.format(task.getTimeSpent()));
+            tvTaskTarget.setText("Target: " + timeFormat.format(task.getTargetTime()));
 
             return view;
         }

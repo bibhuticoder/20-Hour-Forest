@@ -20,12 +20,9 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".SkillActivity" />
-        <activity android:name=".NewSkillActivity" />
         <activity android:name=".SkillInfo" />
         <activity android:name=".SkillCountActivity" />
         <activity android:name=".Forest"></activity>

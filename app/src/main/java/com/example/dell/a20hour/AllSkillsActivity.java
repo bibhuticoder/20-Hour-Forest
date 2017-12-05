@@ -3,16 +3,21 @@ package com.example.dell.a20hour;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dell.a20hour.db.AppDatabase;
 import com.example.dell.a20hour.db.Skill;
@@ -33,8 +38,10 @@ public class AllSkillsActivity extends AppCompatActivity {
 
     private GridView gvSkills;
     private List<Skill> skills;
-    ImageButton ibtnForest, ibtnAbout, ibtnSettings;
+    ImageButton ibtnForest, ibtnAbout, ibtnSettings, ibtnNew;
     AppDatabase db;
+    CustomAdapter customAdapter;
+    AlertDialog newSkillDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +52,16 @@ public class AllSkillsActivity extends AppCompatActivity {
         ibtnForest = findViewById(R.id.ibtnForest);
         ibtnAbout = findViewById(R.id.ibtnAbout);
         ibtnSettings = findViewById(R.id.ibtnSettings);
+        ibtnNew = findViewById(R.id.ibtnNew);
+
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "20hours")
                 .allowMainThreadQueries()
                 .build();
 
         skills = db.skillDao().getAll();
-        final CustomAdapter customAdapter = new CustomAdapter();
+        customAdapter = new CustomAdapter();
         gvSkills.setAdapter(customAdapter);
+
 
         gvSkills.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -76,12 +86,55 @@ public class AllSkillsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ibtnNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(AllSkillsActivity.this);
+                final View mView = getLayoutInflater().inflate(R.layout.new_skill_layout, null);
+                final EditText edtNewSkill = mView.findViewById(R.id.edtNewSkill);
+                CheckBox cbTwentyHr = mView.findViewById(R.id.cbTwentyHr);
+                Button btnAdd = mView.findViewById(R.id.btnAdd);
+                Button btnNewSkillCancel = mView.findViewById(R.id.btnNewSkillCancel);
+                btnAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String title = edtNewSkill.getText().toString();
+                        if(title.length() > 0){
+                            Skill skill = new Skill(title, 0, System.currentTimeMillis(), System.currentTimeMillis(), false);
+                            db.skillDao().insertAll(skill);
+                            skills = db.skillDao().getAll();
+                            customAdapter.notifyDataSetChanged();
+                            newSkillDialog.cancel();
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Add a title", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                btnNewSkillCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        edtNewSkill.setText("");
+                        newSkillDialog.cancel();
+                    }
+                });
+
+                mBuilder.setView(mView);
+                newSkillDialog = mBuilder.create();
+                newSkillDialog.show();
+
+            }
+        });
+
+
     }
 
 
     public void gotoNewSkill(View view) {
-        Intent in = new Intent(getApplicationContext(), NewSkillActivity.class);
-        startActivity(in);
+//        Intent in = new Intent(getApplicationContext(), NewSkillActivity.class);
+//        startActivity(in);
     }
     class CustomAdapter extends BaseAdapter{
 
