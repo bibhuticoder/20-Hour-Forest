@@ -7,8 +7,8 @@ Clone of "Forest" android app with "20 hr rule" feature.
 
 ## todos
 - [ ] populate forest with data
-- [ ] Offline support
-- [ ] Clean UI and a lot of animations
+- [ ] Clean UI and animations
+- [ ] and a lot of other features
 
 ## Screenshots
 ![Alt text](/s.png)
