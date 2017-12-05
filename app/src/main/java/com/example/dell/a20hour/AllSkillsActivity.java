@@ -112,7 +112,6 @@ public class AllSkillsActivity extends AppCompatActivity {
                         }
                     }
                 });
-
                 btnNewSkillCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -120,12 +119,11 @@ public class AllSkillsActivity extends AppCompatActivity {
                         newSkillDialog.cancel();
                     }
                 });
-
                 mBuilder.setView(mView);
                 newSkillDialog = mBuilder.create();
                 newSkillDialog.show();
-
             }
+
         });
 
 

@@ -68,7 +68,7 @@
                 android:padding="5dp">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/ibtnEditSkill"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
@@ -87,8 +87,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_toEndOf="@+id/imageButton"
-                    android:layout_toRightOf="@+id/imageButton"
+                    android:layout_toEndOf="@+id/ibtnEditSkill"
+                    android:layout_toRightOf="@+id/ibtnEditSkill"
                     android:background="@android:color/transparent"
                     android:onClick="deleteSkill"
                     android:scaleType="fitXY"

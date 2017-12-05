@@ -7,112 +7,212 @@
     tools:context="com.example.dell.a20hour.Forest">
 
     <RelativeLayout
-        android:layout_width="395dp"
-        android:layout_height="643dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/forest_background"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/catamaran_thin"
-            android:text="Forest"
-            android:textSize="30sp" />
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Sun"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/text_color">
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Mon"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="Forest"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="30sp" />
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Tue"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    app:srcCompat="@android:drawable/arrow_up_float" />
+            </RelativeLayout>
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Wed"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout">
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Thu"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:gravity="right|center_vertical"
+                    android:text="Tommorrow"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Fri"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+                <TextView
+                    android:id="@+id/tvNumDeadTrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="00"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:background="@color/cpb_front"
-                android:text="Sat"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="8sp" />
+                <TextView
+                    android:id="@+id/tvNumTrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tvNumDeadTrees"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/tvNumDeadTrees"
+                    android:layout_toStartOf="@+id/tvNumDeadTrees"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="00"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout3">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="00 mins"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout4"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/isomorphic_forest" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/barchart">
+
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:animateLayoutChanges="false"
+                android:gravity="bottom"
+                tools:layout_editor_absoluteX="18dp"
+                tools:layout_editor_absoluteY="593dp">
+
+                <ImageButton
+                    android:id="@+id/ibtnLeft"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/left_arrow" />
+
+                <ImageButton
+                    android:id="@+id/ibtnRight"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/right_arrow" />
+
+                <TextView
+                    android:id="@+id/tvTotalTimeOfWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="00 day 00 hours 00 min"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDateWeekRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTotalTimeOfWeek"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/catamaran_thin"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView4"
-            android:layout_marginTop="102dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/isomorphic_forest" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -10,5 +10,8 @@
     <color name="text_color">#373737</color>
 
     <color name="red">#c62828</color>
+    <color name="white">#ffffff</color>
+
+    <color name="forest_background">#6f786c</color>
 
 </resources>

@@ -24,8 +24,6 @@ import android.widget.TextView;
 import com.example.dell.a20hour.db.AppDatabase;
 import com.example.dell.a20hour.db.Skill;
 import com.example.dell.a20hour.db.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
