@@ -1,5 +1,5 @@
 # 20-Hour-Forest
-Clone of "Forest" android app with "20 hr rule " feature. Firebase is used for data storage, so it requires internet connection to run.
+Clone of "Forest" android app with "20 hr rule" feature.
 
 ## Additional features
 - 20 hour rule
@@ -11,6 +11,6 @@ Clone of "Forest" android app with "20 hr rule " feature. Firebase is used for d
 - [ ] Clean UI and a lot of animations
 
 ## Screenshots
-- ![Alt text](/s.png)
+![Alt text](/s.png)
 
 
