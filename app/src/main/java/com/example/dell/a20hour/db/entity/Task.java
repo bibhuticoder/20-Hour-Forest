@@ -1,4 +1,4 @@
-package com.example.dell.a20hour.db;
+package com.example.dell.a20hour.db.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

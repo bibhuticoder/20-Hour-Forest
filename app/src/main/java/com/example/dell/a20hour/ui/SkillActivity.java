@@ -1,4 +1,4 @@
-package com.example.dell.a20hour;
+package com.example.dell.a20hour.ui;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devadvance.circularseekbar.CircularSeekBar;
-import com.example.dell.a20hour.db.Skill;
+import com.example.dell.a20hour.R;
+import com.example.dell.a20hour.db.entity.Skill;
 import com.google.gson.Gson;
 
 public class SkillActivity extends AppCompatActivity {

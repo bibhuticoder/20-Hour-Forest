@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dell.a20hour.Forest">
+    tools:context="com.example.dell.a20hour.ui.Forest">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                 android:layout_below="@+id/relativeLayout3">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/tvTotalTimeDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -127,24 +127,58 @@
             </RelativeLayout>
 
 
-            <ImageView
-                android:id="@+id/imageView"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/relativeLayout4"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/isomorphic_forest" />
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/relativeLayout4"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/isomorphic_forest" />
+
+                <TextView
+                    android:id="@+id/tvDeadDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="107dp"
+                    android:layout_marginStart="107dp"
+                    android:layout_marginTop="48dp"
+                    android:text="TextView"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAliveDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tvDeadDay"
+                    android:layout_alignStart="@+id/tvDeadDay"
+                    android:layout_below="@+id/tvDeadDay"
+                    android:layout_marginTop="27dp"
+                    android:text="TextView"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="210dp">
 
                 <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barchart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/barchart">
+                    android:layout_marginBottom="10dp">
 
 
                 </com.github.mikephil.charting.charts.BarChart>
@@ -172,8 +206,9 @@
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/left_arrow" />
 
@@ -183,7 +218,7 @@
                     android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="5dp"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/right_arrow" />

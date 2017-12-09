@@ -1,4 +1,4 @@
-package com.example.dell.a20hour;
+package com.example.dell.a20hour.ui;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -21,9 +21,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dell.a20hour.R;
 import com.example.dell.a20hour.db.AppDatabase;
-import com.example.dell.a20hour.db.Skill;
-import com.example.dell.a20hour.db.Task;
+import com.example.dell.a20hour.db.entity.Skill;
+import com.example.dell.a20hour.db.entity.Task;
 import com.google.gson.Gson;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 

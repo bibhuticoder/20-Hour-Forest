@@ -1,4 +1,4 @@
-package com.example.dell.a20hour;
+package com.example.dell.a20hour.ui;
 
 import android.app.Dialog;
 import android.arch.persistence.room.Room;
@@ -19,15 +19,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.a20hour.R;
 import com.example.dell.a20hour.db.AppDatabase;
-import com.example.dell.a20hour.db.Skill;
-import com.example.dell.a20hour.db.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.dell.a20hour.db.entity.Skill;
+import com.example.dell.a20hour.db.entity.Task;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SkillInfo extends AppCompatActivity {

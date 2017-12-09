@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AllSkillsActivity">
+        <activity android:name=".ui.AllSkillsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,10 +22,10 @@
 
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".SkillActivity" />
-        <activity android:name=".SkillInfo" />
-        <activity android:name=".SkillCountActivity" />
-        <activity android:name=".Forest"></activity>
+        <activity android:name=".ui.SkillActivity" />
+        <activity android:name=".ui.SkillInfo" />
+        <activity android:name=".ui.SkillCountActivity" />
+        <activity android:name=".ui.Forest"></activity>
     </application>
 
 </manifest>

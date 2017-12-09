@@ -1,7 +1,6 @@
-package com.example.dell.a20hour;
+package com.example.dell.a20hour.ui;
 
 import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,19 +18,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.a20hour.R;
 import com.example.dell.a20hour.db.AppDatabase;
-import com.example.dell.a20hour.db.Skill;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.dell.a20hour.db.entity.Skill;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class AllSkillsActivity extends AppCompatActivity {
